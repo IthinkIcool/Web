@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My August</title>
+    <style>
+        /* Reset some default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base of HTML: Peach Background */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: peachpuff;
+            position: relative;
+        }
+
+        .container {
+            width: 85vw; /* Adjusted for a desktop-like ratio */
+            height: 48vw; /* Height adjusted to match a 16:9 aspect ratio */
+            max-width: 1280px; /* Optional: limit max size for larger screens */
+            max-height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header and Footer with Shadows */
+        header, footer {
+            background-color: #f97094;
+            height: 50px;
+            color: blue;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            font-weight: bold;
+            position: relative;/* Shadow instead of border */
+        }
+
+        footer {
+          /* Bottom shadow for footer */
+        }
+
+        /* Date, Time Display in Top-Right */
+        .date-time {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: darkblue;
+            font-weight: bold;
+        }
+
+        .main {
+            display: flex;
+            flex: 1;
+        }
+
+        /* Main Content (Warm Blue) */
+        .content {
+            flex: 1;
+            background-color: lightblue;
+            color: darkblue;
+            padding: 20px;
+            font-family: Times New Roman;
+            text-align: justify;
+            font-size: 35px;
+            line-height: 1.5;
+            overflow-y: auto;
+        }
+
+        /* Love Icon Style */
+        .love-icon {
+            font-size: 24px;
+            color: red;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            Timun<span class="love-icon">❤️</span>
+            <div class="date-time" id="dateTime"></div>
+        </header>
+
+        <div class="main">
+            <div class="content">
+                <h1>Hi Angel</h1>
+
+                <p>hai cwe ckp yg susukny banyak, cwe dingin skizo, cwe ak
+                (boong), cwe yg makan fries cocol ice cream, cwe gamer meski
+                skill issues, cwe dewasa shreksy even w 155cm tall.</p><br>
+
+                <p>it's been a month since we talked, i just want to say thank you,
+                thank you for being there for me even with the million questions
+                and random things i throw out.</p><br>
+
+                <p>U know August means a lot to me. like, i'm being fr n u're the
+                reason for that, yea ik u're not woa type n what i'm doing won't
+                impress u. who cares, maybe if i wrote this u will change ur
+                mind 😜.</p><br>
+
+                <p>tau ga pas ak ngobrol sama kamu tuh aku kira ak udah cukup
+                dewasa lho but dang, u just tear it apart. Yea, i'm confident
+                that i'm childish enough when i'm with u (mff). Pemikiran km tuh
+                one step ahead in front of me, mungkin km ga sadar tp km
+                ngajarin ak buat ngurangin nethink, kurangin mikirin sesuatu yg
+                diluar control kt. i'd be damn lying if i stop thinking like
+                that again n ur existence ease that.</p><br>
+
+               <p>mff yh aku suka flirting meski km mungkin masih nganggap itu
+                sebatas bercandaan cuz i'm not too sure either, the way i'm
+                looking at u was true, i fall for u, but on the other hand i was
+                dumb at it.</p><br>
+
+                <p>we're about to head back to campus soon, semoga di semester 3 ini
+                bisa we can get through even tho it will full of shit tp bisa
+                survive w ipk yg semoga jg meningkat. i know u can n i know we
+                can, just believe in ourselves. Semoga gue bisa face to face w
+                prettiest girl in the universe w/o awkwardly 👹, n once again
+                thank you Angel Monica Blezynski for being a part of my life
+                ❤️.</p><br>
+
+                <p><b>"You just might be the best thing that's ever happened to
+                me." - Ryle</b></p><br>
+                
+                <img src="photo/ss.jpg" width="500"
+                height="95" align="center"><br><br>
+
+                <p>*ps<br>GUE CEKOKIN CIMORY SELITER KLO ANGGEP INI CONFESSAN<br>
+
+                *ps lg <br> ih alay bgt mff y</p>
+
+            </div>
+        </div>
+
+        <footer>
+           <a href="form.html">ilysm</a>
+        </footer>
+    </div>
+
+    <!-- Audio Element for Music -->
+    <audio id="heartSound">
+        <source src="audio/Pasilyo.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Function to update date, time, day, and year
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById('dateTime');
+            const now = new Date();
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const dayName = days[now.getDay()];
+            const date = now.toLocaleDateString();
+            const time = now.toLocaleTimeString();
+
+            dateTimeElement.textContent = `${dayName}, ${date}, ${time}`;
+        }
+
+        // Update date-time every second
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); // Initial call to display time immediately
+
+        // Play music when heart icon is hovered
+        const heartIcon = document.querySelector('.love-icon');
+        const heartSound = document.getElementById('heartSound');
+
+        heartIcon.addEventListener('mouseenter', function() {
+            heartSound.play();
+        });
+
+        heartIcon.addEventListener('mouseleave', function() {
+            heartSound.pause();
+            heartSound.currentTime = 0; // Reset audio to the beginning
+        });
+    </script>
+</body>
+</html>
